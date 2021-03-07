@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en" class="night-mode">
+
+<head>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <title>资源部 | 收录不止 不止收录</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="资源部">
+    <link rel="icon" href="assets/images/favicon.ico">
+
+    <!-- CSS 
+    ================================================== -->
+    <link rel="stylesheet" href="assets/css/link.css">
+    <link rel="stylesheet" href="assets/css/usrHeard.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/night-mode.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/uikit/3.2.1/css/uikit.min.css">
+
+    <!-- icons
+    ================================================== -->
+    <link rel="stylesheet" href="assets/css/icons.css">
+
+    <!-- Google font
+    ================================================== -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+    <style>
+        
+       .uk-input {
+           width:100%;
+           height:40px;
+           border:1px solid #dbdbdb;
+           outline:none;
+           font-size:15px;
+           text-indent:10px;
+       }
+       .inputpa {
+           position:relative;
+           width:400px;
+           margin:10px auto;
+           display:inline-block;
+       }
+       .inputpa:after {
+           content:"";
+           display:inline-block;
+           width:0;
+           height:2px;
+           background:rgb(229, 231, 120);
+           transition:width 1s;
+           position:absolute;
+           bottom:1px;
+           left:1px;
+       }
+       .active:after {
+           width:calc(100% - 2px)
+       }
+    </style>
+</head>
+
+<body >
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+
+        <!-- 导航模板 -->
+        <div id="muban">
+        </div>
+
+        <!-- 内容区 -->
+        <div uk-height-viewport class="uk-flex uk-flex-middle">
+        <div class="uk-width-2-3@m uk-width-2-2@s m-auto rounded">
+            <div class="uk-child-width-1-2@m uk-grid-collapse bg-gradient-primary" uk-grid>
+
+
+                <!-- column one -->
+                <div class="uk-margin-auto-vertical uk-text-center uk-animation-scale-up p-3 uk-light">
+                    <img src="assets/images/logo-light-icon.png" width="45" alt="">
+                    <h1></h1>
+                    <h1 class="mb-4 mt-2"> 投稿区</h1>
+                    <p>您的稿件经过筛选后， </p>
+                </div>
+
+                <!-- column two -->
+                <div class="uk-card-default p-6">
+                    <div class="my-4 uk-text-center">
+                        <h2 class="mb-0"> “添砖加瓦”</h2>
+                        <hr>
+                    </div>
+                    <form>
+
+                        <div class="uk-form-group">
+                            <label class="uk-form-label"> 邮箱</label>
+
+                            <div class="inputpa uk-position-relative w-100">
+                                <span class="uk-form-icon">
+                                    <i class="icon-feather-mail"></i>
+                                </span>
+                                <input class="uk-input" type="email" placeholder="请输入您的邮箱，以便接收站站反馈">
+                            </div>
+
+                        </div>
+
+                        <div class="uk-form-group">
+                            <label class="uk-form-label"> 投稿标题</label>
+
+                            <div class="inputpa uk-position-relative w-100">
+                                <span class="uk-form-icon">
+                                    <i class="icon-feather-lock"></i>
+                                </span>
+                                <input class="uk-input" type="password" placeholder="请输入标题">
+                            </div>
+
+                        </div>
+
+                        <div class="uk-form-group">
+                            <label class="uk-form-label"> 文字稿件</label>
+
+                            <div class="inputpa uk-position-relative w-100">
+                                <span class="uk-form-icon">
+                                    <i class="icon-feather-lock"></i>
+                                </span>
+                                
+                                <textarea class="uk-input" type="text">artical</textarea>
+                              
+                            </div>
+                        </div>
+
+                        <div class="mt-4 uk-flex-middle uk-grid-small" uk-grid>
+                            <div class="uk-width-expand@s">
+                                <p> 点击查看 <a href="constructing.html">投稿规则</a></p>
+                            </div>
+                            <div class="uk-width-auto@s">
+                                <button type="submit" class="button primary">确认投稿</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div><!--  End column two -->
+
+            </div>
+        </div>
+    
+    </div>
+
+    </div>
+    
+    <script src="./assets/js/jquery-3.3.1.min.js"></script>
+    <script>$("#muban").load("./muban.html"); </script>
+
+    <!-- For Night mode -->
+    <script>
+        (function (window, document, undefined) {
+            'use strict';
+            if (!('localStorage' in window)) return;
+            var nightMode = localStorage.getItem('gmtNightMode');
+            if (nightMode) {
+                document.documentElement.className += ' night-mode';
+            }
+        })(window, document);
+
+
+        (function (window, document, undefined) {
+
+            'use strict';
+
+            // Feature test
+            if (!('localStorage' in window)) return;
+
+            // Get our newly insert toggle
+            var nightMode = document.querySelector('#night-mode');
+            if (!nightMode) return;
+
+            // When clicked, toggle night mode on or off
+            nightMode.addEventListener('click', function (event) {
+                event.preventDefault();
+                document.documentElement.classList.toggle('night-mode');
+                if (document.documentElement.classList.contains('night-mode')) {
+                    localStorage.setItem('gmtNightMode', true);
+                    return;
+                }
+                localStorage.removeItem('gmtNightMode');
+            }, false);
+
+        })(window, document);
+    
+        // 输入框
+        $(".uk-input").focus(function() {
+            $(this).parent(".inputpa").addClass("active");
+        });
+        $(".uk-input").blur(function() {
+            if ($(this).val() == "") {
+                $(this).parent(".inputpa").removeClass("active");
+            }
+        })
+    </script>
+
+
+    <!-- javaScripts
+    ================================================== -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/uikit/3.2.1/js/uikit.min.js"></script>
+    <script src="assets/js/simplebar.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+</body>
+
+</html>

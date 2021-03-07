@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button>历史访问：<span id="jishu">0</span></button>
+    s<div id="content"></div>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript">
+    $(document).ajaxSend(function (event, xhr) {
+            xhr.setRequestHeader("custom-header", "custom-info") ;  // 增加一个自定义请求头
+    });
+    $("button").hover(function(){
+        
+    })
+    
+    $(function(){
+        $.ajax({
+            url: './c/jishu.json',
+            type: 'get',
+            dataType: 'json',
+            async:false,
+            
+            success: function(data){
+                console.log(data);
+                $("#jishu").text(data);
+                
+            },
+            error: function(err){
+                console.log(err)
+            }
+            
+        })
+    })
+        
+        // return false; 
+    </script>
+</body>
+</html>

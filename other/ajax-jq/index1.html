@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button>touch</button>
+<script src="../../assets/js/jquery-3.3.1.min.js"></script>
+<script>
+    $("button").on("click",function(){
+        //提交ajax请求
+
+        $.ajax({
+            url:"http://localhost:8999",
+            data:$("button").text(),
+            type:"POST",
+            dataType:"json",
+            async:true,
+            timeout:5000,
+            // headers:('Access-Control-Allow-Origin:*'),//设置请求头
+
+            complete:function(){
+                console.log("发送完毕");
+            },
+            success:function(data,textStatus,jqXHR){
+                console.log(data);
+                console.log(textStatus);
+                console.log(jqXHR);
+            },
+            error:function(textStatus,jqXHR){
+                console.log("出错了");
+                console.log(textStatus);
+                console.log(jqXHR);
+            }
+        });
+    });
+</script>
+</body>
+</html>

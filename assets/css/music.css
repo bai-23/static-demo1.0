@@ -1,0 +1,186 @@
+
+
+.musiccontainer {
+  position: relative;
+  width: 100px;
+  height: 150px;
+  /* left: -45px; */
+  top: 10px;
+
+  border: 2px solid rgba(255, 255, 255, 0.24);
+  border-radius: 5px;
+  transition: .2s;
+}
+.musiccontainer:hover{
+  top: 8px;
+  box-shadow: 1px 1px 1px wheat;
+}
+.music-box {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: relative;
+  
+}
+
+
+.music-box .mask {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  position: absolute;
+  background-color: rgba(170, 32, 32, 0.3);
+}
+
+.mplayer {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: #ad986d;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.mplayer i {
+  background-color: #000000;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 2px;
+  height: 10px;
+  margin-left: -2px;
+  transition: 0.36s ease;
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+  line-height: 10px;
+}
+
+.mplayer i .before {
+  width: 0;
+  height: 0;
+  border-color: transparent transparent transparent #ad986d;
+  display: inline-block;
+  border-width: 4px 6px 4px 6px;
+  border-style: solid;
+  color: #ad986d;
+  margin-left: 2px;
+  border-width: 5px 8px;
+  margin-top: 0px;
+  transition: 0.36s ease;
+}
+
+.mplayer i .before {
+  border-left-color: #000;
+}
+
+.mplayer i .after {
+  display: inline-block;
+  width: 4px;
+  height: 10px;
+  opacity: 0;
+  transition: 0.36s ease;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+.loadingSvg circle {
+  r: 14;
+  stroke: rgba(0, 0, 0, 0.7);
+  stroke-dasharray: 87;
+  stroke-dashoffset: 87;
+  cx: 25;
+  cy: 25;
+  stroke-width: 2;
+  fill: none;
+}
+
+.m-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 70px;
+  height: 70px;
+}
+
+
+.m_time span {
+  display: block;
+  text-align: center;
+}
+
+.m_time .mplayer_curtime {
+  padding-top: 68px;
+  font-size: 24px;
+  color: #e1be78;
+}
+
+.m_time .m-join {
+  display: none;
+}
+
+.m_time .mplayer_durtime {
+  color: #ad986d;
+}
+
+.mplaying img {
+  animation-play-state: running;
+  -webkit-animation-play-state: running;
+}
+
+
+.mplaying .mplayer i {
+  margin-top: -9px;
+  background-color: transparent;
+}
+
+.mplaying .mplayer i .before {
+  opacity: 0;
+}
+
+.mplaying .mplayer i .after {
+  opacity: 1;
+}
+
+.mplaying .loadingSvg circle {
+  transition: 2s;
+  stroke-dasharray: 87;
+  stroke-dashoffset: 87;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes svgLoading {
+  0% {
+    stroke-dashoffset: 2;
+  }
+
+  100% {
+    stroke-dashoffset: -39;
+  }
+}
